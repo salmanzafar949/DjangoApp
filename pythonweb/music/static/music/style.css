@@ -1,0 +1,17 @@
+body {
+    background: white url("images/bg1.jpg");
+}
+
+.navbar {
+    border-radius: 0;
+}
+
+.navbar-brand {
+    font-family: 'satisfy', cursive;
+}
+
+.musix {
+    font-family: 'satisfy', cursive;
+    color: royalblue;
+    font-size: 50px;
+}

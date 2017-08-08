@@ -1,0 +1,25 @@
+{% extends 'music/base.html' %}{% block body %}
+<!-- {% if all_albums %} -->
+<div class="conatiner">
+    <marquee behavior="" direction="" class="musix" style="">Welcome to Music Listening</marquee>
+</div>
+<ul>
+    {{ object_list }} {% for album in all_albums %}
+    <li style="color:gold">
+        <!-- /music/{{ album.id }}/!-->
+        <a href="{% url 'music:detail' album.id %}" style="color:darkturquoise">{{ album.album_title}}</a>
+    </li>
+    <form action="{% url 'music:delete-album' album.id %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="album_id" value="{{ album.id }}">
+        <button type="submit" class="btn btn-default btn-sm btn-favorite">
+            <span class="glyphicon glyphicon-trash"> 
+            </span>
+        </button>
+    </form>
+    {% endfor %}
+</ul>
+<!-- {% else %}
+<h2 style="display:inline">No Albums Found</h2>
+{% endif %}  -->
+{% endblock %}
